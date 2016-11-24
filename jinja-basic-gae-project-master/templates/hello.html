@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>SmartNinja basic Jinja template</title>
+{% extends "base.html" %}
 
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-    <h1>Alo, alo: SmartNinja!</h1>
+    {% block title %}
+    Domov
+    {% endblock title %}
+
+{% block vsebina_strani %}
+    <h1>Loterija:</h1>
     <form method="POST" action="/rezultat">
         <label for="vpis-sporocila">Vpišite Vaše sporočilo:</label>
         <input name="sporocilo" id="vpis-sporocila">
         <br>
-        <label for="input-ime">Vpiši svoje ime</label>
+        <label for="input-ime">Vpiši svoje ime:</label>
         <input name="ime" id="input-ime">
         <br>
-        <label for="input-stevilka">Vpiši število loterijskih številk</label>
+        <label for="input-stevilka">Vpiši število loterijskih številk:</label>
         <input name="stevilka" id="input-stevilka" type="number">
 
         <button type="submit">Izžrebaj števila</button>
 
     </form>
-</body>
-</html>
+{% endblock vsebina_strani %}

@@ -32,6 +32,10 @@ class MainHandler(BaseHandler):
     def get(self):
         return self.render_template("hello.html")
 
+class OsnovaHandler(BaseHandler):
+    def get(self):
+        return self.render_template("base.html")
+
 class RezultatHandler(BaseHandler):
     def post(self):
         besedilo=self.request.get("sporocilo")
@@ -45,8 +49,18 @@ class RezultatHandler(BaseHandler):
         params = {"name": ime, "besede": besedilo, "izzrebane": izzrebane}
         return self.render_template("rezultat.html", params=params)
 
+class AboutHandler(BaseHandler):
+    def get(self):
+        return self.render_template("about.html")
+
+class ContactHandler(BaseHandler):
+    def get(self):
+        return self.render_template("contact.html")
 
 app = webapp2.WSGIApplication([
     webapp2.Route('/', MainHandler),
-    webapp2.Route('/rezultat', RezultatHandler)
+    webapp2.Route('/rezultat', RezultatHandler),
+    webapp2.Route('/mywebsite.html', OsnovaHandler),
+    webapp2.Route("/about", AboutHandler),
+    webapp2.Route("/contact", ContactHandler)
 ], debug=True)
